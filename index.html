@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | People's Police University - E-Learning</title>
+    <!-- Font Roboto and Montserrat cho sự mạnh mẽ, chuẩn mực -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* === RESET === */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Roboto', sans-serif; background-color: #f4f6f9; color: #333; line-height: 1.6; }
+        a { text-decoration: none; }
+        ul { list-style: none; }
+
+        /* === COLOR VARIABLES === */
+        :root {
+            --primary-blue: #0b3d91; /* Xanh Navy Cảnh sát */
+            --accent-gold: #cfa85e;  /* Vàng kim */
+            --dark-blue: #062356;
+            --light-gray: #f8f9fa;
+        }
+
+        /* === NAVBAR === */
+        header {
+            background-color: var(--primary-blue);
+            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--accent-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: var(--primary-blue);
+            font-weight: bold;
+        }
+
+        .logo-text h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .logo-text p { font-size: 0.85rem; color: #d1d5db; }
+
+        nav {
+            padding: 0 5%;
+            background-color: var(--dark-blue);
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .nav-links li a {
+            color: white;
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding: 15px 0;
+            display: block;
+            text-transform: uppercase;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links li a:hover, .nav-links li a.active {
+            color: var(--accent-gold);
+        }
+
+        /* === HERO SECTION === */
+        .hero {
+            margin-top: 130px; /* Offset for fixed header */
+            height: 70vh;
+            background: linear-gradient(rgba(6, 35, 86, 0.8), rgba(6, 35, 86, 0.8)), url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+
+        .hero h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero h2 span { color: var(--accent-gold); }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin-bottom: 30px;
+            font-weight: 300;
+            animation: fadeInUp 1s ease;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            background-color: var(--accent-gold);
+            color: var(--dark-blue);
+            font-weight: 700;
+            border-radius: 4px;
+            font-family: 'Montserrat', sans-serif;
+            transition: all 0.3s;
+            text-transform: uppercase;
+        }
+
+        .btn:hover { background-color: #b8924b; transform: translateY(-3px); }
+
+        /* === QUICK ACCESS SECTION === */
+        .quick-access {
+            padding: 80px 5%;
+            text-align: center;
+        }
+
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary-blue);
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        .section-subtitle {
+            color: #666;
+            margin-bottom: 50px;
+        }
+
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: white;
+            padding: 40px 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            border-bottom: 4px solid transparent;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-bottom: 4px solid var(--accent-gold);
+        }
+
+        .card i {
+            font-size: 40px;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark-blue);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .card p { color: #555; font-size: 0.95rem; margin-bottom: 20px;}
+        .card a { color: var(--accent-gold); font-weight: 700; font-size: 0.9rem;}
+
+        /* === FOOTER === */
+        footer {
+            background-color: var(--dark-blue);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            border-top: 5px solid var(--accent-gold);
+        }
+
+        /* Animations */
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links { display: none; } /* On actual implementation, a hamburger menu should be added */
+            .hero h2 { font-size: 2rem; }
+            .hero { margin-top: 100px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER & NAVBAR -->
+    <header>
+        <div class="top-bar">
+            <div class="logo-container">
+                <div class="logo-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                <div class="logo-text">
+                    <h1>PEOPLE'S POLICE UNIVERSITY</h1>
+                    <p>Faculty of Foreign Languages & Informatics</p>
+                </div>
+            </div>
+            <a href="#" class="btn" style="padding: 8px 20px; font-size: 0.8rem;">Login</a>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#course">Course Syllabus</a></li>
+                <li><a href="#lessons">Lessons</a></li>
+                <li><a href="#resources">Learning Resources</a></li>
+                <li><a href="#community">Community</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <h2>Welcome to <span>E-Learning Portal</span></h2>
+        <p>Your ultimate destination for mastering foreign languages and informatics at the People's Police University. Discover yourself, access top-tier resources, and excel in your studies.</p>
+        <a href="#lessons" class="btn">Start Learning Now</a>
+    </section>
+
+    <!-- QUICK ACCESS MODULES -->
+    <section class="quick-access" id="course">
+        <h2 class="section-title">Academic Modules</h2>
+        <p class="section-subtitle">Quick access to your learning materials and assessments</p>
+
+        <div class="grid-cards">
+            <!-- Card 1 -->
+            <div class="card">
+                <i class="fa-solid fa-book-open"></i>
+                <h3>Course Syllabus</h3>
+                <p>View learning outcomes, course content, assessment details, and schedule.</p>
+                <a href="#">VIEW SYLLABUS <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <!-- Card 2 -->
+            <div class="card">
+                <i class="fa-solid fa-layer-group"></i>
+                <h3>Interactive Lessons</h3>
+                <p>Access Units 1 to 12. Engage with structured lesson plans and practical exercises.</p>
+                <a href="#">GO TO LESSONS <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <!-- Card 3 -->
+            <div class="card">
+                <i class="fa-solid fa-photo-film"></i>
+                <h3>Learning Resources</h3>
+                <p>Explore flashcards, videos, vocabulary banks, grammar banks, and extra readings.</p>
+                <a href="#">EXPLORE RESOURCES <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <!-- Card 4 -->
+            <div class="card">
+                <i class="fa-solid fa-clipboard-check"></i>
+                <h3>Assessment</h3>
+                <p>Complete unit quizzes and use the self-assessment checklist to track your progress.</p>
+                <a href="#">TAKE QUIZZES <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <h2>PEOPLE'S POLICE UNIVERSITY</h2>
+        <p style="margin-top: 10px; color: #a0aec0;">Faculty of Foreign Languages & Informatics E-Learning System</p>
+        <p style="margin-top: 20px; font-size: 0.9rem;">&copy; 2024 All Rights Reserved. Redesigned for excellence.</p>
+    </footer>
+
+</body>
+</html>
